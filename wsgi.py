@@ -2,7 +2,7 @@ import click, pytest, sys
 from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
-from App.models import User
+from App.models import User, Student
 from App.main import create_app
 from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize )
 
@@ -18,9 +18,41 @@ def init():
     initialize()
     print('database intialized')
 
+@app.cli.command ("listStaff", help="Lists all staff in the database")
+def listStaff():
+    staff = Staff.query.all()
+    for member in staff:
+        print(member)
+
+@app.cli.command ("ListStudents", help="Lists all students in the database")
+def listStudents():
+    students = Student.query.all()
+    for student in students:
+        print(student)
+
+
+
+student_cli = AppGroup('student', help='Student object commands')
+
+@student_cli.command("listStudents", help="Lists all students in the database")
+def listStudents():
+    students = Student.query.all()
+    for student in students:
+        print(student)
+
+        
+
+
+
+
+
+
+
+
+
 '''
 User Commands
-'''
+
 
 # Commands can be organized using groups
 
@@ -48,9 +80,9 @@ def list_user_command(format):
 
 app.cli.add_command(user_cli) # add the group to the cli
 
-'''
+
 Test Commands
-'''
+
 
 test = AppGroup('test', help='Testing commands') 
 
@@ -66,3 +98,4 @@ def user_tests_command(type):
     
 
 app.cli.add_command(test)
+'''
