@@ -13,7 +13,13 @@ class Staff(db.Model):
         self.email = email
 
     def __repr__(self):
-        return f"<Staff ID= {self.id:<3} Name= {self.name:<15} Email= {self.email}>"
+        return f"[Staff ID= {self.id:<3} Name= {self.name:<15} Email= {self.email}]"
+    
+    def create_staff(name, email):
+        newstaff = Staff(name=name, email=email)
+        db.session.add(newstaff)
+        db.session.commit()
+        return newstaff
     
     def approve_request(self, request):
         from App.models import LoggedHours
@@ -33,3 +39,5 @@ class Staff(db.Model):
         request.status = 'denied'
         db.session.commit()
         return True
+    
+    

@@ -16,7 +16,15 @@ class Student(db.Model):
         self.email = email
 
     def __repr__(self):
-        return f"<Student ID= {self.id:<3}  Name= {self.name:<20} Email= {self.email}>"
+        return f"[Student ID= {self.id:<3}  Name= {self.name:<15} Email= {self.email}]"
+    
+    
+    
+    def create_student(name, email):
+        newstudent = Student(name=name, email=email)
+        db.session.add(newstudent)
+        db.session.commit()
+        return newstudent
     
     def request_hours_confirmation(self, hours):
         from App.models import Request

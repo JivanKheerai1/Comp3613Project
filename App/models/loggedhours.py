@@ -17,4 +17,4 @@ class LoggedHours(db.Model):
         self.status = status
 
     def __repr__(self):
-        return f"<Log ID={self.id} StudentID ={self.student_id} Approved By (StaffID)={self.staff_id} Hours Approved={self.hours}"
+        return f"[Log ID={self.id} StudentID ={self.student_id} Approved By (StaffID)={self.staff_id} Hours Approved={self.hours}]"
