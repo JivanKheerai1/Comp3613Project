@@ -1,7 +1,7 @@
 from App.database import db
 from App.models import User,Staff,Student,Request
 
-def register_student(name,email):
+def register_student(name,email,):
     new_student=Student.create_student(name,email)
     return new_student
 

@@ -1,23 +1,35 @@
 from App.database import db
+from .user import User
 
 class Staff(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(120), nullable=False, unique=True)
+    __tablename__ = "staff"
+    staff_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), primary_key=True)
+    
     #relationaship to LoggedHours
     loggedhours = db.relationship('LoggedHours', backref='staff', lazy=True, cascade="all, delete-orphan")
 
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
+   #Inheritance, Staff is a child of User
+    __mapper_args__ = {
+        "polymorphic_identity": "staff"
+    }
+    #calls parent constructor
+    def __init__(self, username, email, password):
+       super().__init__(username, email, password, role="staff")
 
     def __repr__(self):
-        return f"[Staff ID= {self.id:<3} Name= {self.name:<15} Email= {self.email}]"
+        return f"[Staff ID= {self.staff_id:<3} Name= {self.name:<15} Email= {self.email}]"
+    
+    def get_json(self):
+        return{
+            'staff_id': self.staff_id,
+            'username': self.username,
+            'email': self.email
+        }
     
     # Method to create a new staff member
-    def create_staff(name, email):
-        newstaff = Staff(name=name, email=email)
+    def create_staff(username, email, password):
+        newstaff = Staff(username=username, email=email, password=password)
         db.session.add(newstaff)
         db.session.commit()
         return newstaff
@@ -30,7 +42,7 @@ class Staff(db.Model):
         # Mark request as approved
         request.status = 'approved'
         # Create a LoggedHours entry
-        logged = LoggedHours(student_id=request.student_id, staff_id=self.id, hours=request.hours, status='approved')
+        logged = LoggedHours(student_id=request.student_id, staff_id=self.staff_id, hours=request.hours, status='approved')
         db.session.add(logged)
         db.session.commit()
         return logged
