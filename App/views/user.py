@@ -2,12 +2,16 @@ from flask import Blueprint, render_template, jsonify, request, send_from_direct
 from flask_jwt_extended import jwt_required, current_user as jwt_current_user
 
 from.index import index_views
-
+from App.controllers.student_controller import get_all_students_json
+from App.controllers.staff_controller import get_all_staff_json
 from App.controllers import (
     create_user,
     get_all_users,
     get_all_users_json,
-    jwt_required
+    jwt_required,
+    view_leaderboard,
+    get_all_requests_json,
+    get_all_logged_hours_json
 )
 
 user_views = Blueprint('user_views', __name__, template_folder='../templates')
@@ -38,3 +42,29 @@ def create_user_endpoint():
 @user_views.route('/static/users', methods=['GET'])
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
+
+@user_views.route('/api/students', methods=['GET'])
+def get_students_action():
+    students = get_all_students_json()
+    return jsonify(students)
+
+@user_views.route('/api/staff', methods=['GET'])
+def get_staff_action():
+    staff_members = get_all_staff_json()
+    return jsonify(staff_members)
+
+
+@user_views.route('/api/leaderboard', methods=['GET'])
+def leaderboard_action():
+    leaderboard = view_leaderboard()
+    return jsonify(leaderboard)
+
+@user_views.route('/api/requests', methods=['GET'])
+def requests_action():
+    requests = get_all_requests_json()
+    return jsonify(requests)
+
+@user_views.route('/api/logged_hours', methods=['GET'])
+def logged_hours_action():
+    logs = get_all_logged_hours_json()
+    return jsonify(logs)
