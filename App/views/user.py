@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, jsonify, request, send_from_directory, flash, redirect, url_for
 from flask_jwt_extended import jwt_required, current_user as jwt_current_user
-
+from App.models import Student, Staff, User
 from.index import index_views
-from App.controllers.student_controller import get_all_students_json
-from App.controllers.staff_controller import get_all_staff_json
+from App.controllers.student_controller import get_all_students_json,register_student
+from App.controllers.staff_controller import get_all_staff_json,register_staff
 from App.controllers import (
     create_user,
     get_all_users,
@@ -25,7 +25,7 @@ def get_user_page():
 def create_user_action():
     data = request.form
     flash(f"User {data['username']} created!")
-    create_user(data['username'], data['password'])
+    create_user(data['username'], data['password'],data['email'])
     return redirect(url_for('user_views.get_user_page'))
 
 @user_views.route('/api/users', methods=['GET'])
@@ -35,9 +35,33 @@ def get_users_action():
 
 @user_views.route('/api/users', methods=['POST'])
 def create_user_endpoint():
-    data = request.json
+    data = request.form
     user = create_user(data['username'], data['password'])
     return jsonify({'message': f"user {user.username} created with id {user.id}"})
+
+@user_views.route('/api/create_Student', methods=['POST'])
+def create_student_endpoint():
+    data = request.json
+    
+    users = User.query.all()
+    for u in users:
+        if u.email == data['email'] or u.username == data['name']:
+            return jsonify({'message': f"User with email {data['email']} already exists or username {data['name']}."}), 400
+    
+    student = register_student(data['name'], data['email'], data['password'])
+    return jsonify({'message': f"Student {student.username} created with id {student.student_id}"})
+
+@user_views.route('/api/create_Staff', methods=['POST'])
+def create_staff_endpoint():
+    data = request.json
+
+    users = User.query.all()
+    for u in users:
+        if u.email == data['email'] or u.username == data['name']:
+            return jsonify({'message': f"User with email {data['email']} already exists or username {data['name']}."}), 400
+
+    staff = register_staff(data['name'], data['email'], data['password'])
+    return jsonify({'message': f"Staff {staff.username} created with id {staff.staff_id}"})
 
 @user_views.route('/static/users', methods=['GET'])
 def static_user_page():
