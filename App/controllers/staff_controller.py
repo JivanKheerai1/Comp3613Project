@@ -1,5 +1,5 @@
 from App.database import db
-from App.models import User,Staff,Student,Request
+from App.models import User,Staff,Student,Request,ActivityObserver
 
 def register_staff(name,email,password): #registers a new staff member
     new_staff = Staff.create_staff(name, email, password)
@@ -36,6 +36,18 @@ def process_request_approval(staff_id, request_id): #staff approves a student's 
     student = Student.query.get(request.student_id)
     name = student.username if student else "Unknown" # should always find student if data integrity is maintained
     logged = staff.approve_request(request)
+    # If approval created a LoggedHours entry, notify observers so activity history is recorded
+    if logged:
+        try:
+            observer = ActivityObserver()
+            student.register_observer(observer)
+            student.notify_observers("hours_approved", {"hours": logged.hours, "staff_id": staff.staff_id})
+        finally:
+            # unregister to avoid retaining runtime references
+            try:
+                student.unregister_observer(observer)
+            except Exception:
+                pass
 
     return {
         'request': request,
