@@ -164,6 +164,61 @@ class ActivityObserverUnitTests(unittest.TestCase):
         observer = ActivityObserver()
         self.assertIsNotNone(observer)
 
+class UserControllerErrorTests(unittest.TestCase):
+    
+    def setUp(self):
+        self.app = create_app()
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        db.create_all()  
+        
+        self.existing_user = create_user("Alice", "password123", "alice@example.com")
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+        self.app_context.pop()
+
+    def test_create_user_duplicate(self):
+        print("Running duplicate user test!")
+        with self.assertRaises(Exception) as context:
+            create_user("Alice2", "newpassword", "alice@example.com")
+        self.assertIn("already exists", str(context.exception))
+
+    def test_login_wrong_password(self):
+        create_user("Bob", "correctpass", "bob@example.com")
+
+        try:
+            result = login("Bob", "wrongpass")  
+        except Exception as e:
+        
+           self.assertIn("invalid", str(e).lower())
+        return
+
+        self.assertFalse(result, f"Expected login to fail for wrong password but got: {result}")
+    
+    def test_get_user_invalid_id(self):
+   
+      with self.assertRaises(Exception) as context:
+        get_user(999)  
+
+      self.assertIn("user does not exist", str(context.exception))
+
+    def test_get_user_by_username_invalid(self):
+        with self.assertRaises(Exception) as context:
+           get_user_by_username("nope_user")
+
+        self.assertIn("user not found", str(context.exception))
+
+    def test_update_nonexistent_user(self):
+        with self.assertRaises(Exception) as context:
+            update_user(999, "newname")  
+
+        self.assertIn("user does not exist", str(context.exception))
+
+
+
+
 
 # '''
 #     Integration Tests
