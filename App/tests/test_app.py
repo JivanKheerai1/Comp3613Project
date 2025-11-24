@@ -294,6 +294,19 @@ class StaffIntegrationTests(unittest.TestCase):
 
 
 class StudentIntegrationTests(unittest.TestCase):
+    def setUp(self):
+        from App.main import create_app
+        from App.database import db
+        self.app = create_app()
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        db.create_all()
+
+    def tearDown(self):
+        from App.database import db
+        db.session.remove()
+        db.drop_all()
+        self.app_context.pop()
 
     def test_create_student(self):
         student = register_student("junior", "junior@example.com", "studpass")
