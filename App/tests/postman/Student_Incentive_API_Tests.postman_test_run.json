@@ -1,0 +1,1327 @@
+{
+	"id": "5f5aa482-1a33-4b2e-bdd4-63ad2fa6d16b",
+	"name": "Student_Incentive_API_Tests",
+	"timestamp": "2025-12-03T12:58:34.336Z",
+	"collection_id": "42959560-865dd511-af7b-4379-b807-5f00e83845e9",
+	"folder_id": 0,
+	"environment_id": "42959560-e93137c9-4dac-41be-978b-3dd3ad9c54de",
+	"totalPass": 80,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-12-03T12:58:28.849Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3c7bc253-3bab-4000-8a37-7de01aedfbd4",
+			"name": "Health",
+			"url": "http://127.0.0.1:8080/health",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Status is healthy": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status is healthy": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Status is healthy": true
+				}
+			]
+		},
+		{
+			"id": "50947e56-f427-413e-847e-477662f46f85",
+			"name": "Initialise_DB",
+			"url": "http://127.0.0.1:8080/init",
+			"time": 1336,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"DB initialized message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"DB initialized message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1336
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"DB initialized message": true
+				}
+			]
+		},
+		{
+			"id": "dbace2e3-7949-4bee-96b8-f07f098e6fb9",
+			"name": "Create_User",
+			"url": "http://127.0.0.1:8080/api/users",
+			"time": 278,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response is JSON": true,
+				"Contains success message": true,
+				"User ID returned is a number": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Contains success message": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User ID returned is a number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				278
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response is JSON": true,
+					"Contains success message": true,
+					"User ID returned is a number": true
+				}
+			]
+		},
+		{
+			"id": "02effe9b-f3bb-490c-b689-eb4ff86179d6",
+			"name": "Create_Student",
+			"url": "http://127.0.0.1:8080/api/create_Student",
+			"time": 136,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Student created successfully": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Student created successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				136
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Student created successfully": true
+				}
+			]
+		},
+		{
+			"id": "4ae1d419-9cc6-46fc-ace6-f07773dff743",
+			"name": "Login_Success_Student",
+			"url": "http://127.0.0.1:8080/api/login",
+			"time": 124,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Access token exists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Access token exists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				124
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Access token exists": true
+				}
+			]
+		},
+		{
+			"id": "bf0a3f48-f6c5-4711-aeff-66bd114f2ffc",
+			"name": "Request_Hours_Valid",
+			"url": "http://127.0.0.1:8080/api/make_request",
+			"time": 19,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response is JSON": true,
+				"Request created successfully": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Request created successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response is JSON": true,
+					"Request created successfully": true
+				}
+			]
+		},
+		{
+			"id": "9c20933a-9088-4cf4-8adc-423113d4ef04",
+			"name": "View_Accolades",
+			"url": "http://127.0.0.1:8080/api/accolades",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true
+				}
+			]
+		},
+		{
+			"id": "89b06a40-bf89-4e07-8c60-38e1724741fd",
+			"name": "List_Leaderboard",
+			"url": "http://127.0.0.1:8080/api/leaderboard",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Leaderboard returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Leaderboard returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Leaderboard returned": true
+				}
+			]
+		},
+		{
+			"id": "d446149a-035d-4fb2-9da0-3e016471070c",
+			"name": "List_Requests",
+			"url": "http://127.0.0.1:8080/api/requests",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Requests list returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Requests list returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Requests list returned": true
+				}
+			]
+		},
+		{
+			"id": "75445b21-3bec-46f3-873e-016824d144d5",
+			"name": "List_Students",
+			"url": "http://127.0.0.1:8080/api/students",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Students list returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Students list returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Students list returned": true
+				}
+			]
+		},
+		{
+			"id": "c1bf505d-a432-4d64-b780-2e34a55480aa",
+			"name": "List_Logged_Hours",
+			"url": "http://127.0.0.1:8080/api/logged_hours",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Logged hours list returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Logged hours list returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Logged hours list returned": true
+				}
+			]
+		},
+		{
+			"id": "144eb215-f893-43f9-8d04-fa063098f2c8",
+			"name": "User_Identification",
+			"url": "http://127.0.0.1:8080/api/identify",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"HTML contains user identity text": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"HTML contains user identity text": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"HTML contains user identity text": true
+				}
+			]
+		},
+		{
+			"id": "2030920c-1f33-4a99-aeb3-2587a5ad0793",
+			"name": "Activity_History",
+			"url": "http://127.0.0.1:8080/api/activity-history",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains history list": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains history list": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains history list": true
+				}
+			]
+		},
+		{
+			"id": "a3f49b90-138b-4eb0-b8b2-31817c51a8c1",
+			"name": "Create_Student_Failure",
+			"url": "http://127.0.0.1:8080/api/create_Student",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {
+				"POST create student with missing fields returns 400": true,
+				"POST create student with empty body returns 400": true
+			},
+			"testPassFailCounts": {
+				"POST create student with missing fields returns 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"POST create student with empty body returns 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"POST create student with missing fields returns 400": true,
+					"POST create student with empty body returns 400": true
+				}
+			]
+		},
+		{
+			"id": "d2d79684-b160-4ec5-855f-f10ee6356c36",
+			"name": "Login_Denial_Student",
+			"url": "http://127.0.0.1:8080/api/login",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response is JSON": true,
+				"Error message for bad login": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error message for bad login": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Response is JSON": true,
+					"Error message for bad login": true
+				}
+			]
+		},
+		{
+			"id": "2c56dd08-295f-42d0-846e-dcccfb809e85",
+			"name": "Request_Hours_Invalid",
+			"url": "http://127.0.0.1:8080/api/make_request",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {
+				"Request with empty body returns 400": true
+			},
+			"testPassFailCounts": {
+				"Request with empty body returns 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Request with empty body returns 400": true
+				}
+			]
+		},
+		{
+			"id": "ea926e3f-7db0-43fb-8be9-51a7ceb01d7b",
+			"name": "Create_Staff",
+			"url": "http://127.0.0.1:8080/api/create_Staff",
+			"time": 135,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Staff created message is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Staff created message is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				135
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Staff created message is correct": true
+				}
+			]
+		},
+		{
+			"id": "6626fb0e-441e-49ca-aa8b-b64a05c1ac8c",
+			"name": "Login_Success_Staff",
+			"url": "http://127.0.0.1:8080/api/login",
+			"time": 112,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Access token exists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Access token exists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				112
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Access token exists": true
+				}
+			]
+		},
+		{
+			"id": "cf57d6b1-24f1-45ef-acff-dd4fd777b49b",
+			"name": "List_Users",
+			"url": "http://127.0.0.1:8080/api/users",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Users list returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Users list returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Users list returned": true
+				}
+			]
+		},
+		{
+			"id": "78205ea2-fb22-4fac-85b9-a638dc575146",
+			"name": "List_Staff",
+			"url": "http://127.0.0.1:8080/api/staff",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Staff list returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Staff list returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Staff list returned": true
+				}
+			]
+		},
+		{
+			"id": "fa03f8f6-398f-49ea-8c35-25600ec55757",
+			"name": "Accept_Request",
+			"url": "http://127.0.0.1:8080/api/accept_request",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Request accepted message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Request accepted message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				29
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Request accepted message": true
+				}
+			]
+		},
+		{
+			"id": "94db1513-0078-471d-9cb4-1a0e7a553b91",
+			"name": "Deny_Request",
+			"url": "http://127.0.0.1:8080/api/deny_request",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Request denied message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Request denied message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Request denied message": true
+				}
+			]
+		},
+		{
+			"id": "85d5b7d8-210a-46e9-b42a-2092d78f1124",
+			"name": "Delete_Request",
+			"url": "http://127.0.0.1:8080/api/delete_request",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is JSON": true,
+				"Request deleted message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Request deleted message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is JSON": true,
+					"Request deleted message": true
+				}
+			]
+		},
+		{
+			"id": "49f488d3-6311-4a94-809c-7c0ef2fd5bca",
+			"name": "Delete_Log",
+			"url": "http://127.0.0.1:8080/api/delete_logs",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response has message 'Logs deleted'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has message 'Logs deleted'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response has message 'Logs deleted'": true
+				}
+			]
+		},
+		{
+			"id": "576618b0-7b98-4605-9ab8-2d2476ee3fee",
+			"name": "Create_Staff_Failure",
+			"url": "http://127.0.0.1:8080/api/create_Staff",
+			"time": 5,
+			"responseCode": {
+				"code": 415,
+				"name": "UNSUPPORTED MEDIA TYPE"
+			},
+			"tests": {
+				"POST create staff with wrong Content-Type returns 415": true
+			},
+			"testPassFailCounts": {
+				"POST create staff with wrong Content-Type returns 415": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"POST create staff with wrong Content-Type returns 415": true
+				}
+			]
+		},
+		{
+			"id": "1f6df654-78f4-4975-b296-1715751d377f",
+			"name": "Login_Denial_Staff",
+			"url": "http://127.0.0.1:8080/api/login",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response is JSON": true,
+				"Error message for bad login": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error message for bad login": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Response is JSON": true,
+					"Error message for bad login": true
+				}
+			]
+		},
+		{
+			"id": "3cd03d1f-644a-4783-924e-b2adda36df43",
+			"name": "List_Users_Failure",
+			"url": "http://127.0.0.1:8080/api/users/9",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "NOT FOUND"
+			},
+			"tests": {
+				"GET non-existent user returns 404": true
+			},
+			"testPassFailCounts": {
+				"GET non-existent user returns 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"GET non-existent user returns 404": true
+				}
+			]
+		},
+		{
+			"id": "e83643a0-3c45-4742-a121-358106001959",
+			"name": "List_Staff_Failure",
+			"url": "http://127.0.0.1:8080/api/staff/999",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "NOT FOUND"
+			},
+			"tests": {
+				"GET non-existent user returns 404": true
+			},
+			"testPassFailCounts": {
+				"GET non-existent user returns 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"GET non-existent user returns 404": true
+				}
+			]
+		},
+		{
+			"id": "2a917ead-44ef-40c3-a900-63ae8fb17dd1",
+			"name": "Accept_Request_Failure",
+			"url": "http://127.0.0.1:8080/api/accept_request",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {
+				"PUT with empty body returns 400": true,
+				"PUT with missing request_id returns 400": true
+			},
+			"testPassFailCounts": {
+				"PUT with empty body returns 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"PUT with missing request_id returns 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"PUT with empty body returns 400": true,
+					"PUT with missing request_id returns 400": true
+				}
+			]
+		},
+		{
+			"id": "d3d848ad-1a84-41a9-81bf-966e192f0f5d",
+			"name": "Deny_Request_Failure",
+			"url": "http://127.0.0.1:8080/api/deny_request",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {
+				"PUT with missing request_id returns 400": true
+			},
+			"testPassFailCounts": {
+				"PUT with missing request_id returns 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"PUT with missing request_id returns 400": true
+				}
+			]
+		},
+		{
+			"id": "d2eb3083-14a4-4cc7-a77c-1931530c7f3c",
+			"name": "Delete_Request_Failure",
+			"url": "http://127.0.0.1:8080/api/delete_request",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "BAD REQUEST"
+			},
+			"tests": {
+				"DELETE with empty body returns 400": true,
+				"DELETE with missing request_id returns 400": true
+			},
+			"testPassFailCounts": {
+				"DELETE with empty body returns 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"DELETE with missing request_id returns 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"DELETE with empty body returns 400": true,
+					"DELETE with missing request_id returns 400": true
+				}
+			]
+		},
+		{
+			"id": "472964fc-dc40-4691-9eba-71237a2fd83e",
+			"name": "Delete_Log_Failure",
+			"url": "http://127.0.0.1:8080/api/delete_logs",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "NOT FOUND"
+			},
+			"tests": {
+				"DELETE with invalid log_id returns 404": true
+			},
+			"testPassFailCounts": {
+				"DELETE with invalid log_id returns 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"DELETE with invalid log_id returns 404": true
+				}
+			]
+		},
+		{
+			"id": "1e990bc6-7582-4f93-b3fc-1b5973919fd9",
+			"name": "Logout",
+			"url": "http://127.0.0.1:8080/api/logout",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 ": true,
+				"JWT cookies are removed": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"JWT cookies are removed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200 ": true,
+					"JWT cookies are removed": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2358,
+	"collection": {
+		"requests": [
+			{
+				"id": "3c7bc253-3bab-4000-8a37-7de01aedfbd4",
+				"method": "GET"
+			},
+			{
+				"id": "50947e56-f427-413e-847e-477662f46f85",
+				"method": "GET"
+			},
+			{
+				"id": "dbace2e3-7949-4bee-96b8-f07f098e6fb9",
+				"method": "POST"
+			},
+			{
+				"id": "02effe9b-f3bb-490c-b689-eb4ff86179d6",
+				"method": "POST"
+			},
+			{
+				"id": "4ae1d419-9cc6-46fc-ace6-f07773dff743",
+				"method": "POST"
+			},
+			{
+				"id": "bf0a3f48-f6c5-4711-aeff-66bd114f2ffc",
+				"method": "POST"
+			},
+			{
+				"id": "9c20933a-9088-4cf4-8adc-423113d4ef04",
+				"method": "GET"
+			},
+			{
+				"id": "89b06a40-bf89-4e07-8c60-38e1724741fd",
+				"method": "GET"
+			},
+			{
+				"id": "d446149a-035d-4fb2-9da0-3e016471070c",
+				"method": "GET"
+			},
+			{
+				"id": "75445b21-3bec-46f3-873e-016824d144d5",
+				"method": "GET"
+			},
+			{
+				"id": "c1bf505d-a432-4d64-b780-2e34a55480aa",
+				"method": "GET"
+			},
+			{
+				"id": "144eb215-f893-43f9-8d04-fa063098f2c8",
+				"method": "GET"
+			},
+			{
+				"id": "2030920c-1f33-4a99-aeb3-2587a5ad0793",
+				"method": "GET"
+			},
+			{
+				"id": "a3f49b90-138b-4eb0-b8b2-31817c51a8c1",
+				"method": "POST"
+			},
+			{
+				"id": "d2d79684-b160-4ec5-855f-f10ee6356c36",
+				"method": "POST"
+			},
+			{
+				"id": "2c56dd08-295f-42d0-846e-dcccfb809e85",
+				"method": "POST"
+			},
+			{
+				"id": "ea926e3f-7db0-43fb-8be9-51a7ceb01d7b",
+				"method": "POST"
+			},
+			{
+				"id": "6626fb0e-441e-49ca-aa8b-b64a05c1ac8c",
+				"method": "POST"
+			},
+			{
+				"id": "cf57d6b1-24f1-45ef-acff-dd4fd777b49b",
+				"method": "GET"
+			},
+			{
+				"id": "78205ea2-fb22-4fac-85b9-a638dc575146",
+				"method": "GET"
+			},
+			{
+				"id": "fa03f8f6-398f-49ea-8c35-25600ec55757",
+				"method": "PUT"
+			},
+			{
+				"id": "94db1513-0078-471d-9cb4-1a0e7a553b91",
+				"method": "PUT"
+			},
+			{
+				"id": "85d5b7d8-210a-46e9-b42a-2092d78f1124",
+				"method": "DELETE"
+			},
+			{
+				"id": "49f488d3-6311-4a94-809c-7c0ef2fd5bca",
+				"method": "DELETE"
+			},
+			{
+				"id": "576618b0-7b98-4605-9ab8-2d2476ee3fee",
+				"method": "POST"
+			},
+			{
+				"id": "1f6df654-78f4-4975-b296-1715751d377f",
+				"method": "POST"
+			},
+			{
+				"id": "3cd03d1f-644a-4783-924e-b2adda36df43",
+				"method": "GET"
+			},
+			{
+				"id": "e83643a0-3c45-4742-a121-358106001959",
+				"method": "GET"
+			},
+			{
+				"id": "2a917ead-44ef-40c3-a900-63ae8fb17dd1",
+				"method": "PUT"
+			},
+			{
+				"id": "d3d848ad-1a84-41a9-81bf-966e192f0f5d",
+				"method": "PUT"
+			},
+			{
+				"id": "d2eb3083-14a4-4cc7-a77c-1931530c7f3c",
+				"method": "DELETE"
+			},
+			{
+				"id": "472964fc-dc40-4691-9eba-71237a2fd83e",
+				"method": "DELETE"
+			},
+			{
+				"id": "1e990bc6-7582-4f93-b3fc-1b5973919fd9",
+				"method": "GET"
+			}
+		]
+	}
+}
